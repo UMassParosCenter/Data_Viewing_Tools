@@ -12,7 +12,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 
-def addWindNoise(base: np.ndarray, fs: float, f_min: float = 0.1, f_max: float = 10, V: float = 5, sigma: float = 1, L: float = 50) -> np.NDArray[np.float64]:
+def addWindNoise(base: np.ndarray, fs: float, f_min: float = 0.1, f_max: float = 10, V: float = 5, sigma: float = 1, L: float = 50) -> np.ndarray[np.float64]:
     '''
     Adds synthetic wind noise to provided base signal.
 
@@ -62,10 +62,10 @@ def addWindNoise(base: np.ndarray, fs: float, f_min: float = 0.1, f_max: float =
     # Plot
     t = np.arange(N) / fs
     plt.figure(figsize=(10,4))
-    plt.plot(t[:1200], p_mb[:1200], lw=1)
+    plt.plot(t, p_mb)
     plt.xlabel("Time [s]")
     plt.ylabel("Pressure [mB]")
-    plt.title("Band-limited (1–10 Hz) wind noise in Pascals")
+    plt.title("Wind noise in millibars")
     plt.show()
 
     # Add to base
